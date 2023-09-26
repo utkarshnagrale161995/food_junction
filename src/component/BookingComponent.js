@@ -49,11 +49,11 @@ import image1 from './assets/image1.jpg'
         event.preventDefault();
         if (state.bookedOn==="" || state.buffetName==="" || state.emailId==="" || state.plateCount<1){ 
              setMandatory(true)
-             console.log("i am in if")
+             
               }
         else{
               setMandatory(false)
-              console.log("i am in else")
+            
               axios.post("https://foodjunction-data.onrender.com/bookings",state)
               .then((response)=>{
               setSuccessMessage(`Booking is successfully created with bookingId: ${response.data.id}`)
