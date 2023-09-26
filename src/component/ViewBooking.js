@@ -33,7 +33,7 @@ const onChange =(event) => {
 const handleAction = (action) => {
 
       if (action === "onDelete") {
-            axios.delete("http://localhost:4050/bookings/"+state.bookingId)
+            axios.delete("https://foodjunction-data.onrender.com/bookings/"+state.bookingId)
             .then(()=>{
                      setState({...state,infoMessage:messages.INFO,bookingData:null})
                 })
@@ -51,7 +51,7 @@ const handleAction = (action) => {
 const onSubmit= (event)=>{
     event.preventDefault();
     setState({...state,infoMessage:""})
-    axios.get("http://localhost:4050/bookings/"+state.bookingId)
+    axios.get("https://foodjunction-data.onrender.com/bookings/"+state.bookingId)
     .then((response)=>{
       console.log(response.data);
        setState({...state,bookingData:response.data,infoMessage:""})

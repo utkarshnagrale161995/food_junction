@@ -38,7 +38,7 @@ import image1 from './assets/image1.jpg'
          
         const [messages] = useState({
            EMAILID_ERROR: "Please enter valid email",
-           PLATE_COUNT_ERROR: "Plate count(s) should be 1 or more", 
+           PLATE_COUNT_ERROR: "P late count(s) should be 1 or more", 
            BUFFET_NAME_ERROR: "Please select buffet type",
            BOOKED_ON_ERROR: "Booking date should be after today's date", 
            ERROR: "Something went wrong",
@@ -47,12 +47,14 @@ import image1 from './assets/image1.jpg'
 
         const handleSubmit =(event)=> {
         event.preventDefault();
-        if (state.bookedOn==="" && state.buffetName==="" && state.emailId==="" && state.plateCount<1){ 
+        if (state.bookedOn==="" || state.buffetName==="" || state.emailId==="" || state.plateCount<1){ 
              setMandatory(true)
+             console.log("i am in if")
               }
         else{
               setMandatory(false)
-              axios.post("http://localhost:4050/bookings",state)
+              console.log("i am in else")
+              axios.post("https://foodjunction-data.onrender.com/bookings",state)
               .then((response)=>{
               setSuccessMessage(`Booking is successfully created with bookingId: ${response.data.id}`)
               })

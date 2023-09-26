@@ -25,7 +25,7 @@ MANDATORY: "ALL the fields are mandatory",
 
 
   useEffect(()=>{
-       axios.get("http://localhost:4050/bookings/"+params.id)
+       axios.get("https://foodjunction-data.onrender.com/bookings/"+params.id)
        .then((response)=>{
         console.log("in")
           setBooking(response.data)
@@ -52,7 +52,7 @@ const update= (event) => {
 
 
 if(buffetName!=="" &&  emailId!=="" && plateCount!==""){
-    axios.put("http://localhost:4050/bookings/"+booking.id,newBooking)
+    axios.put("https://foodjunction-data.onrender.com/bookings/"+booking.id,newBooking)
     .then((response)=>{
         console.log("in");
         setSuccess("Booking has been updated: "+response.data.id);
